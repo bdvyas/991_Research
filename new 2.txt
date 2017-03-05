@@ -1,0 +1,39 @@
+93k transcripts
+100 base pair read
+assign a probability that it came from one of those transcripts
+
+break 100 into 70 31-mers
+31-mer as an input
+keep "31" flexible
+
+every 5-mer (1024), CNN takes 1024 inputs
+There can be 27 different 5-mers in the 31-mer
+Learn a set of weights for wi from 0-1023
+Learn a sigmoid 
+We'll pick ~35 kernels (arbitrary number again)
+
+Layer 1:
+1024 inputs
+2D input of 1024 rows and 70 columns
+
+Layer 2:
+Fully connected to layer 1
+MaxPool over 70 of bunches of 5 and take the highest of the kernel outputs and has 14 inputs for each of the 35 kernels
+35*14 = 490 outputs from the 1024 inputs of layer 1
+Gets 35*70 positions = ~2500
+
+Layer 3:
+500 inputs from the previous layer
+
+All of the above fully connected
+
+Layer 5:
+90k nodes which take 500 inputs which together have a softmax activation
+
+
+Learn about BioMart
+Look for mice
+Get transcripts for mice
+
+Google "tutorial 1D cnn"
+http://useast.ensembl.org/info/data/biomart/how_to_use_biomart.html
